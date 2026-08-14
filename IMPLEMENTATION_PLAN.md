@@ -27,28 +27,29 @@
 - [x] `git init`, branch `main`, local identity set
 
 ### Phase 2 — Build `index.html`
-- [ ] Head: title, meta description, OG tags, theme-color, inline SVG favicon, re-brand comment block
-- [ ] Sticky glass nav: placeholder name, section links, phone + WhatsApp CTA, mobile burger
-- [ ] Hero: full-width `electrician_hero1.jpg` bg, gradient headline, AI-receptionist sub-line, 2 CTAs, trust chips
-- [ ] Instant-quote calculator (3 steps, state machine): job type radios → postcode + urgency → price range + "Book the slot" (scrolls to survey form, pre-fills job type + postcode). Phone mockup `electrician_quote_ui.jpg` beside it on desktop
-- [ ] Services grid: 6 cards, inline SVG icons
-- [ ] AI receptionist section: missed-call loop copy + `missed_call_dashboard.jpg`
-- [ ] Coverage areas: replaceable placeholders ("Your town", "Nearby town 1"...) clearly marked
-- [ ] Gallery: `electrician_hero2.jpg` + `electrician_hero_v2.jpg` as "recent work"
-- [ ] Reviews: 3 five-star cards, realistic placeholder copy
-- [ ] Free survey form: name, phone, job-type dropdown, postcode, message → inline success state (client-side only)
-- [ ] Footer: placeholder phone/email/WhatsApp, "Demo site by Atwood Systems"
-- [ ] JS: nav toggle, calculator state machine, form success state, scroll-reveal (respects reduced motion)
+- [x] Head: title, meta description, OG tags, theme-color, inline SVG favicon, re-brand comment block
+- [x] Sticky glass nav: placeholder name, section links, phone + WhatsApp CTA, mobile burger
+- [x] Hero: full-width `electrician_hero1.jpg` bg, gradient headline, AI-receptionist sub-line, 2 CTAs, trust chips
+- [x] Instant-quote calculator (3 steps, state machine): job type radios → postcode + urgency → price range + "Book the slot" (scrolls to survey form, pre-fills job type + postcode). Phone mockup `electrician_quote_ui.jpg` beside it on desktop
+- [x] Services grid: 6 cards, inline SVG icons
+- [x] AI receptionist section: missed-call loop copy + `missed_call_dashboard.jpg`
+- [x] Coverage areas: replaceable placeholders ("Your town", "Nearby town 1"...) clearly marked
+- [x] Gallery: `electrician_hero2.jpg` + `electrician_hero_v2.jpg` as "recent work"
+- [x] Reviews: 3 five-star cards, realistic placeholder copy
+- [x] Free survey form: name, phone, job-type dropdown, postcode, message → inline success state (client-side only)
+- [x] Footer: placeholder phone/email/WhatsApp, "Demo site by Atwood Systems"
+- [x] JS: nav toggle, calculator state machine, form success state, scroll-reveal (respects reduced motion)
 
 ### Phase 3 — Verify
-- [ ] Serve statically, confirm all 5 `assets/<filename>` resolve (HTTP 200)
-- [ ] Confirm no external requests (no fonts, no CDN, no analytics in this build)
-- [ ] Confirm calculator produces a price for all 6 job types
-- [ ] Confirm form success state shows without a backend
-- [ ] HTML validity spot-check (balanced tags, no broken refs)
+- [x] Serve statically, confirm all 5 `assets/<filename>` resolve (HTTP 200)
+- [x] Confirm no external requests (no fonts, no CDN, no analytics in this build)
+- [x] Confirm calculator produces a price for all 6 job types
+- [x] Confirm form success state shows without a backend
+- [x] HTML validity spot-check (balanced tags, no broken refs)
+- [x] Headless Chromium test: 21 functional checks + 11 layout checks all pass (no overflow, sections render, interactions work, no console errors)
 
 ### Phase 4 — Ship
-- [ ] Commit plan + build to `main`, push to `aakademikk/electrician-demo`
+- [x] Commit plan + build to `main`, push to `aakademikk/electrician-demo`
 - [ ] Report: paths, asset list, deviations, verification results
 
 ## Acceptance criteria

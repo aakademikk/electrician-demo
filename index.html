@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<!-- ==========================================================================
+  RE-BRAND CHECKLIST - EVERYTHING TO CHANGE FOR A NEW PROSPECT
+  ==========================================================================
+  Business name:     "YOUR BUSINESS NAME"  (nav logo, coverage heading,
+                     footer name, copyright line)
+  Phone number:      01234 567 890         (nav CTA, hero trust row, footer,
+                     survey success state, emergency line)
+  WhatsApp number:   07123 456 789         (nav CTA, footer) - also update the
+                     wa.me link in the nav and footer to the full intl number
+  Email:             hello@yourbusiness.co.uk  (footer)
+  Coverage areas:    "Your town", "Nearby town 1" to "Nearby town 6"
+                     (section 6 - the .area-chip list)
+  Job prices:        the PRICES object in the calculator script (bottom of
+                     this file) - ranges shown in step 3 of the quote widget
+  Review copy:       section 8 - the 3 review cards are realistic placeholders
+  Gallery captions:  section 7 - captions under the two work photos
+  Hero photo:        assets/electrician_hero1.jpg  (swap for prospect's own)
+  Meta title/desc:   the <title> and <meta name="description"> in <head>
+  OG image:          the og:image tag points at assets/electrician_hero1.jpg -
+                     swap to an absolute https URL once the site is live so
+                     social share previews resolve correctly
+  Small print:       keep the "Demo site by Atwood Systems" line in the footer
+  ========================================================================== -->
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>YOUR BUSINESS NAME | Electrician in Your town - instant quotes 24/7</title>
+  <meta name="description" content="Local electrician covering Your town and the surrounding area. An AI receptionist answers every call 24/7, quotes in seconds and books you in. Get your instant quote today.">
+  <meta name="theme-color" content="#090909">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="YOUR BUSINESS NAME | Electrician in Your town - instant quotes 24/7">
+  <meta property="og:description" content="Never miss a job because you missed a call. AI receptionist answers 24/7, quotes in seconds and books the job. Get your instant quote today.">
+  <meta property="og:image" content="assets/electrician_hero1.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2326e884' d='M13 2 3 14h7l-1 8 10-12h-7z'/%3E%3C/svg%3E">
+  <style>
+    /* ==========================================================================
+       Design system - Atwood brand: near-black canvas, glowing greens, glass.
+       ========================================================================== */
+    :root {
+      --base: #090909;
+      --base-deep: #050505;
+      --panel: #101010;
+      --panel-2: #141414;
+      --panel-3: #181818;
+      --primary: #26e884;
+      --primary-dim: #17a862;
+      --secondary: #7bf06a;
+      --accent: #0fd6b4;
+      --support: #0b9e63;
+      --ink: #f5f5f5;
+      --muted: #b8bcc5;
+      --faint: #7c818c;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-green: rgba(38, 232, 132, 0.28);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --nav-h: 72px;
+      --radius: 18px;
+      --grad-headline: linear-gradient(100deg, var(--secondary) 0%, var(--primary) 48%, var(--accent) 100%);
+      --grad-btn: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 55%, var(--accent) 100%);
+      --glow: 0 0 0 1px rgba(38, 232, 132, 0.35), 0 18px 60px -18px rgba(38, 232, 132, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-h) + 16px);
+    }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--base);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+
+    ::selection { background: rgba(38, 232, 132, 0.28); color: var(--ink); }
+
+    .container { width: min(1160px, 100% - 40px); margin-inline: auto; }
+
+    section { padding: 88px 0; position: relative; }
+
+    /* Ambient green glows in section backgrounds */
+    .glow::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(640px 320px at 12% 0%, rgba(38, 232, 132, 0.07), transparent 60%),
+        radial-gradient(560px 300px at 90% 100%, rgba(11, 158, 99, 0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .glow > * { position: relative; }
+
+    /* Type */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--primary); opacity: 0.7; }
+
+    h1, h2, h3 { line-height: 1.12; font-weight: 750; letter-spacing: -0.02em; }
+
+    h1 { font-size: clamp(2.4rem, 6.5vw, 4.2rem); }
+    h2 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); }
+    h3 { font-size: 1.15rem; }
+
+    .text-gradient {
+      background: var(--grad-headline);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead { color: var(--muted); font-size: 1.08rem; max-width: 58ch; }
+    .center { text-align: center; }
+    .center .lead { margin-inline: auto; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 26px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 650;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease), background 0.35s var(--ease);
+      white-space: nowrap;
+    }
+    .btn svg { width: 18px; height: 18px; flex: none; }
+
+    .btn-primary {
+      background: var(--grad-btn);
+      color: #04110e;
+      box-shadow: 0 0 0 1px rgba(38, 232, 132, 0.35), 0 14px 44px -14px rgba(38, 232, 132, 0.6);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(38, 232, 132, 0.55), 0 22px 60px -16px rgba(38, 232, 132, 0.7); }
+
+    .btn-ghost {
+      border-color: var(--line-green);
+      color: var(--ink);
+      background: rgba(38, 232, 132, 0.04);
+    }
+    .btn-ghost:hover { transform: translateY(-2px); border-color: rgba(38, 232, 132, 0.6); background: rgba(38, 232, 132, 0.08); }
+
+    .btn-sm { padding: 11px 18px; font-size: 0.92rem; }
+
+    /* Glass cards */
+    .card {
+      background: rgba(16, 16, 16, 0.62);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      backdrop-filter: blur(24px) saturate(140%);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+      position: relative;
+      isolation: isolate;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset-inline: 12%;
+      top: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(38, 232, 132, 0.55), rgba(140, 251, 192, 0.35), transparent);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       Nav
+       ========================================================================== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      height: var(--nav-h);
+      background: rgba(9, 9, 9, 0.72);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      border-bottom: 1px solid var(--line);
+      transition: box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+    }
+    .nav.scrolled { box-shadow: 0 18px 44px -22px rgba(0, 0, 0, 0.8); border-bottom-color: rgba(38, 232, 132, 0.18); }
+
+    .nav-inner { height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+
+    .brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .brand-mark {
+      width: 38px; height: 38px; flex: none;
+      display: grid; place-items: center;
+      border-radius: 11px;
+      background: linear-gradient(135deg, rgba(38, 232, 132, 0.18), rgba(15, 214, 180, 0.1));
+      border: 1px solid var(--line-green);
+      box-shadow: 0 0 24px -6px rgba(38, 232, 132, 0.45);
+    }
+    .brand-mark svg { width: 20px; height: 20px; fill: var(--primary); }
+    .brand-name { font-weight: 750; letter-spacing: 0.02em; font-size: 1.02rem; line-height: 1.2; white-space: nowrap; }
+    .brand-tag { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--primary); display: block; }
+
+    .nav-links { display: none; align-items: center; gap: 26px; }
+    .nav-links a { color: var(--muted); font-size: 0.94rem; font-weight: 550; transition: color 0.3s var(--ease); }
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
+    .nav-cta .btn { display: inline-flex; }
+
+    .wa-icon { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; color: #04110e; background: var(--grad-btn); box-shadow: 0 0 0 1px rgba(38, 232, 132, 0.35), 0 10px 30px -12px rgba(38, 232, 132, 0.6); transition: transform 0.35s var(--ease); }
+    .wa-icon:hover { transform: translateY(-2px); }
+    .wa-icon svg { width: 22px; height: 22px; fill: #04110e; }
+
+    .nav-burger { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.03); }
+    .nav-burger svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; }
+
+    /* Mobile nav panel */
+    .mobile-menu {
+      display: block;
+      position: fixed;
+      inset: var(--nav-h) 0 auto 0;
+      z-index: 55;
+      background: rgba(9, 9, 9, 0.97);
+      border-bottom: 1px solid var(--line-green);
+      padding: 14px 20px 22px;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.4s var(--ease), opacity 0.4s var(--ease);
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .mobile-menu a {
+      display: block; padding: 14px 4px; color: var(--ink); font-weight: 600;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ==========================================================================
+       Hero
+       ========================================================================== */
+    .hero {
+      position: relative;
+      min-height: 640px;
+      min-height: 92vh;
+      min-height: max(640px, 92svh);
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(115deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.72) 45%, rgba(5, 5, 5, 0.35) 100%),
+        linear-gradient(0deg, var(--base) 0%, transparent 28%),
+        url("assets/electrician_hero1.jpg") center / cover no-repeat;
+      padding: 84px 0 96px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(620px 360px at 18% 30%, rgba(38, 232, 132, 0.14), transparent 62%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 720px; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      border: 1px solid var(--line-green);
+      background: rgba(38, 232, 132, 0.08);
+      color: var(--secondary); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em;
+      margin-bottom: 22px;
+    }
+    .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 12px var(--primary); animation: pulse 2.4s var(--ease) infinite; }
+
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    .hero h1 { margin-bottom: 20px; }
+    .hero .lead { font-size: 1.18rem; margin-bottom: 32px; }
+
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 38px; }
+
+    .hero-trust { display: flex; flex-wrap: wrap; gap: 10px 26px; color: var(--muted); font-size: 0.9rem; }
+    .hero-trust span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-trust svg { width: 16px; height: 16px; stroke: var(--primary); }
+
+    /* ==========================================================================
+       Quote calculator
+       ========================================================================== */
+    .calc-wrap { display: grid; gap: 28px; align-items: center; }
+
+    .calc-card { padding: 26px; }
+
+    .calc-progress { display: flex; align-items: center; gap: 6px; margin-bottom: 26px; }
+    .calc-step { display: flex; align-items: center; gap: 9px; flex: 1; }
+    .calc-step .num {
+      width: 26px; height: 26px; border-radius: 50%; flex: none;
+      display: grid; place-items: center;
+      font-size: 0.78rem; font-weight: 700;
+      border: 1px solid var(--line); color: var(--faint);
+      transition: all 0.4s var(--ease);
+    }
+    .calc-step .lbl { font-size: 0.76rem; font-weight: 600; color: var(--faint); letter-spacing: 0.02em; }
+    .calc-step.active .num { border-color: var(--primary); color: #04110e; background: var(--primary); box-shadow: 0 0 18px -4px rgba(38, 232, 132, 0.7); }
+    .calc-step.active .lbl { color: var(--ink); }
+    .calc-step.done .num { border-color: var(--primary-dim); color: var(--primary); }
+    .calc-step.done .lbl { color: var(--muted); }
+    .calc-bar { flex: 1; height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
+    .calc-bar i { display: block; height: 100%; width: 0%; background: var(--grad-btn); transition: width 0.5s var(--ease); }
+
+    .calc-panel { display: none; animation: fadeUp 0.5s var(--ease); }
+    .calc-panel.active { display: block; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+    .calc-panel h3 { margin-bottom: 6px; }
+    .calc-hint { color: var(--faint); font-size: 0.9rem; margin-bottom: 20px; }
+
+    .job-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .job-option { position: relative; }
+    .job-option input { position: absolute; opacity: 0; pointer-events: none; }
+    .job-card {
+      display: flex; flex-direction: column; gap: 9px; align-items: flex-start;
+      padding: 14px; height: 100%;
+      border: 1px solid var(--line); border-radius: 14px;
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--muted); font-size: 0.88rem; font-weight: 600; line-height: 1.3;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+    .job-card svg { width: 22px; height: 22px; stroke: var(--faint); transition: stroke 0.3s var(--ease); }
+    .job-option:hover .job-card { border-color: var(--line-green); background: rgba(38, 232, 132, 0.05); }
+    .job-option input:checked + .job-card {
+      border-color: var(--primary); background: rgba(38, 232, 132, 0.1);
+      color: var(--ink);
+      box-shadow: 0 0 0 1px rgba(38, 232, 132, 0.25), 0 12px 34px -16px rgba(38, 232, 132, 0.5);
+    }
+    .job-option input:checked + .job-card svg { stroke: var(--primary); }
+
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-size: 0.82rem; font-weight: 650; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 14px 16px;
+      border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035); color: var(--ink);
+      font: inherit; outline: none;
+      transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--primary); box-shadow: 0 0 0 3px rgba(38, 232, 132, 0.15);
+    }
+    .field input.error { border-color: #ff6b6b; }
+    .field .field-err { color: #ff6b6b; font-size: 0.8rem; margin-top: 6px; display: none; }
+    .field .field-err.show { display: block; }
+    .field textarea { resize: vertical; min-height: 100px; }
+    .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237c818c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+
+    .urgency-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 22px; }
+    .urgency-option { position: relative; }
+    .urgency-option input { position: absolute; opacity: 0; pointer-events: none; }
+    .urgency-option span {
+      display: block; text-align: center; padding: 12px 6px;
+      border: 1px solid var(--line); border-radius: 12px;
+      color: var(--muted); font-size: 0.88rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s var(--ease);
+    }
+    .urgency-option:hover span { border-color: var(--line-green); }
+    .urgency-option input:checked + span {
+      border-color: var(--primary); color: var(--ink);
+      background: rgba(38, 232, 132, 0.1); box-shadow: 0 0 0 1px rgba(38, 232, 132, 0.25);
+    }
+
+    .calc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 4px; }
+    .calc-back { background: none; border: none; color: var(--faint); font-size: 0.9rem; font-weight: 600; padding: 6px 2px; transition: color 0.3s var(--ease); }
+    .calc-back:hover { color: var(--primary); }
+
+    .quote-result {
+      padding: 24px; border-radius: 16px;
+      border: 1px solid var(--line-green);
+      background:
+        radial-gradient(320px 160px at 20% 0%, rgba(38, 232, 132, 0.12), transparent 70%),
+        rgba(255, 255, 255, 0.025);
+      margin-bottom: 22px; text-align: center;
+    }
+    .quote-job { color: var(--muted); font-size: 0.92rem; font-weight: 650; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .quote-loc { color: var(--faint); font-size: 0.82rem; margin-bottom: 16px; }
+    .quote-price { font-size: clamp(2rem, 5vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+    .quote-price .text-gradient { background: var(--grad-headline); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .quote-note { color: var(--muted); font-size: 0.9rem; margin-top: 14px; }
+    .quote-note svg { width: 15px; height: 15px; stroke: var(--primary); display: inline; vertical-align: -2px; margin-right: 6px; }
+
+    .calc-phone { display: none; }
+
+    /* ==========================================================================
+       Services
+       ========================================================================== */
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 44px; }
+
+    .service-card { padding: 26px; transition: transform 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+    .service-card:hover { transform: translateY(-5px); border-color: rgba(38, 232, 132, 0.4); box-shadow: 0 24px 60px -30px rgba(38, 232, 132, 0.45); }
+    .service-icon {
+      width: 48px; height: 48px; border-radius: 13px;
+      display: grid; place-items: center; margin-bottom: 18px;
+      background: rgba(38, 232, 132, 0.08); border: 1px solid var(--line-green);
+      color: var(--primary);
+    }
+    .service-icon svg { width: 24px; height: 24px; stroke: currentColor; }
+    .service-card h3 { margin-bottom: 8px; }
+    .service-card p { color: var(--muted); font-size: 0.94rem; }
+
+    /* ==========================================================================
+       AI receptionist
+       ========================================================================== */
+    .ai-grid { display: grid; gap: 40px; align-items: center; margin-top: 44px; }
+
+    .loop { margin-top: 30px; display: grid; gap: 0; }
+    .loop-item { position: relative; display: flex; gap: 18px; padding-bottom: 26px; }
+    .loop-item:last-child { padding-bottom: 0; }
+    .loop-item::before {
+      content: ""; position: absolute; left: 15px; top: 40px; bottom: 0; width: 2px;
+      background: linear-gradient(180deg, rgba(38, 232, 132, 0.5), rgba(38, 232, 132, 0.05));
+    }
+    .loop-item:last-child::before { display: none; }
+    .loop-num {
+      width: 32px; height: 32px; border-radius: 50%; flex: none;
+      display: grid; place-items: center; font-size: 0.85rem; font-weight: 800;
+      color: #04110e; background: var(--grad-btn); box-shadow: 0 0 18px -4px rgba(38, 232, 132, 0.6);
+      z-index: 1;
+    }
+    .loop-item h4 { font-size: 1.04rem; margin-bottom: 4px; }
+    .loop-item p { color: var(--muted); font-size: 0.94rem; }
+
+    .ai-media { position: relative; }
+    .ai-frame {
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--line-green);
+      box-shadow: var(--glow);
+    }
+    .ai-frame img { width: 100%; }
+    .ai-badge {
+      position: absolute; left: 14px; bottom: 14px;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 14px; border-radius: 999px;
+      background: rgba(5, 5, 5, 0.78); border: 1px solid var(--line-green);
+      backdrop-filter: blur(10px);
+      color: var(--ink); font-size: 0.85rem; font-weight: 650;
+    }
+    .ai-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+
+    .ai-cta { margin-top: 34px; }
+
+    /* ==========================================================================
+       Coverage
+       ========================================================================== */
+    .areas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; justify-content: center; }
+    .area-chip {
+      padding: 12px 22px; border-radius: 999px;
+      border: 1px solid var(--line); background: rgba(255, 255, 255, 0.03);
+      color: var(--muted); font-weight: 600; font-size: 0.94rem;
+      transition: all 0.3s var(--ease);
+    }
+    .area-chip:hover { border-color: var(--line-green); color: var(--ink); background: rgba(38, 232, 132, 0.06); }
+    .area-note { color: var(--faint); font-size: 0.85rem; margin-top: 22px; }
+
+    /* ==========================================================================
+       Gallery
+       ========================================================================== */
+    .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 44px; }
+    .gallery-item { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); position: relative; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; transition: transform 0.7s var(--ease); }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-cap {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 20px 16px;
+      background: linear-gradient(0deg, rgba(5, 5, 5, 0.85), transparent);
+      color: var(--ink); font-weight: 650; font-size: 0.95rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 10px;
+    }
+    .gallery-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); border: 1px solid var(--line-green); padding: 4px 10px; border-radius: 999px; background: rgba(5, 5, 5, 0.5); }
+
+    /* ==========================================================================
+       Reviews
+       ========================================================================== */
+    .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 44px; }
+    .review-card { padding: 26px; display: flex; flex-direction: column; gap: 16px; }
+    .stars { display: flex; gap: 3px; color: var(--primary); }
+    .stars svg { width: 18px; height: 18px; filter: drop-shadow(0 0 6px rgba(38, 232, 132, 0.5)); }
+    .review-text { color: var(--muted); font-size: 1rem; line-height: 1.65; }
+    .review-who { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .review-avatar {
+      width: 40px; height: 40px; border-radius: 50%; flex: none;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(38, 232, 132, 0.2), rgba(15, 214, 180, 0.12));
+      border: 1px solid var(--line-green);
+      color: var(--primary); font-weight: 800; font-size: 0.95rem;
+    }
+    .review-name { font-weight: 700; font-size: 0.94rem; }
+    .review-area { color: var(--faint); font-size: 0.82rem; }
+
+    /* ==========================================================================
+       Survey form
+       ========================================================================== */
+    .survey-grid { display: grid; gap: 36px; margin-top: 44px; }
+
+    .survey-contacts { display: grid; gap: 14px; margin-top: 26px; }
+    .contact-row { display: flex; align-items: center; gap: 13px; color: var(--muted); font-size: 0.98rem; }
+    .contact-row svg { width: 20px; height: 20px; stroke: var(--primary); flex: none; }
+    .contact-row a:hover { color: var(--primary); }
+    .contact-row b { color: var(--ink); }
+
+    .survey-card { padding: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 0; }
+
+    .form-success { display: none; text-align: center; padding: 30px 6px; }
+    .form-success.show { display: block; animation: fadeUp 0.5s var(--ease); }
+    .success-check {
+      width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 20px;
+      display: grid; place-items: center;
+      background: rgba(38, 232, 132, 0.12); border: 1px solid var(--line-green);
+      box-shadow: 0 0 40px -10px rgba(38, 232, 132, 0.6);
+    }
+    .success-check svg { width: 30px; height: 30px; stroke: var(--primary); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .form-success h3 { margin-bottom: 10px; }
+    .form-success p { color: var(--muted); }
+    .form-success .btn { margin-top: 22px; }
+
+    /* ==========================================================================
+       Footer
+       ========================================================================== */
+    .footer { border-top: 1px solid var(--line); padding: 56px 0 34px; background: var(--base-deep); }
+    .footer-grid { display: grid; gap: 30px; margin-bottom: 40px; }
+    .footer-brand .brand { margin-bottom: 14px; }
+    .footer-brand p { color: var(--faint); font-size: 0.92rem; max-width: 34ch; }
+    .footer-links { display: grid; gap: 8px; }
+    .footer-links a { color: var(--muted); font-size: 0.94rem; width: fit-content; }
+    .footer-links a:hover { color: var(--primary); }
+    .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--faint); margin-bottom: 14px; }
+    .footer-contact { display: grid; gap: 10px; color: var(--muted); font-size: 0.94rem; }
+    .footer-contact a:hover { color: var(--primary); }
+    .footer-bottom {
+      border-top: 1px solid var(--line); padding-top: 22px;
+      display: flex; flex-direction: column; gap: 12px;
+      color: var(--faint); font-size: 0.84rem;
+    }
+    .footer-bottom .atwood { color: var(--primary); font-weight: 650; }
+
+    /* ==========================================================================
+       Reveal
+       ========================================================================== */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .reveal.revealed { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ==========================================================================
+       Responsive
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .job-grid { grid-template-columns: repeat(3, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr 1fr; gap: 0 16px; }
+      .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+
+    @media (min-width: 900px) {
+      .nav-links { display: flex; }
+      .nav-burger { display: none; }
+      .mobile-menu { display: none; }
+      .calc-wrap { grid-template-columns: 1.35fr 1fr; }
+      .calc-phone { display: block; }
+      .calc-phone img {
+        border-radius: 26px; border: 1px solid var(--line-green);
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.02), 0 0 0 11px var(--line), 0 30px 80px -30px rgba(38, 232, 132, 0.4);
+        width: 100%; max-width: 340px; margin-inline: auto;
+      }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .ai-grid { grid-template-columns: 1.05fr 1fr; }
+      .survey-grid { grid-template-columns: 1fr 1.1fr; }
+      .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; }
+    }
+
+    @media (min-width: 1120px) {
+      section { padding: 104px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= NAV ================= -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="YOUR BUSINESS NAME home">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
+        </span>
+        <span>
+          <span class="brand-name">YOUR BUSINESS NAME</span>
+          <span class="brand-tag">Electrician</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#quote">Instant quote</a>
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-primary btn-sm" href="tel:01234567890">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l1.5 4.5-2.2 1.6a12 12 0 0 0 5.6 5.6l1.6-2.2L20 15v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          <span>01234 567 890</span>
+        </a>
+        <a class="wa-icon" href="https://wa.me/447123456789" aria-label="Message us on WhatsApp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#quote">Instant quote</a>
+    <a href="#services">Services</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#coverage">Coverage</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <div class="container hero-inner">
+      <span class="hero-badge"><span class="dot"></span> AI receptionist answers in seconds, 24/7</span>
+      <h1>On the tools, not on the phone.<br><span class="text-gradient">Never miss a job again.</span></h1>
+      <p class="lead">The AI receptionist answers every call in seconds, quotes your job 24/7 and books it straight into your calendar. You turn up and do the work. It does the phone.</p>
+      <div class="hero-cta">
+        <a href="#quote" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
+          Get an instant quote
+        </a>
+        <a href="#contact" class="btn btn-ghost">Book a free survey</a>
+      </div>
+      <div class="hero-trust">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Answers on the first ring
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg>
+          5.0 rated on Google
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 8h6"/></svg>
+          Certified and insured
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= QUOTE CALCULATOR ================= -->
+  <section class="glow" id="quote">
+    <div class="container">
+      <div class="center">
+        <span class="eyebrow">Instant quote</span>
+        <h2>Get a price in under <span class="text-gradient">a minute</span></h2>
+        <p class="lead">Three quick answers, no phone tag, no waiting for a callback. This is exactly what your customers see when they message you out of hours.</p>
+      </div>
+
+      <div class="calc-wrap">
+        <div class="card calc-card" role="group" aria-label="Instant quote calculator">
+          <div class="calc-progress" aria-hidden="true">
+            <div class="calc-step active" data-ps="1">
+              <span class="num">1</span><span class="lbl">Job</span>
+            </div>
+            <div class="calc-bar"><i></i></div>
+            <div class="calc-step" data-ps="2">
+              <span class="num">2</span><span class="lbl">Where &amp; when</span>
+            </div>
+            <div class="calc-bar"><i></i></div>
+            <div class="calc-step" data-ps="3">
+              <span class="num">3</span><span class="lbl">Quote</span>
+            </div>
+          </div>
+
+          <!-- Step 1 -->
+          <div class="calc-panel active" data-panel="1">
+            <h3>What needs doing?</h3>
+            <p class="calc-hint">Pick the job that's closest to yours.</p>
+            <div class="job-grid" id="jobGrid">
+              <label class="job-option">
+                <input type="radio" name="job" value="fault">
+                <span class="job-card">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M8 11h6"/></svg>
+                  Fault finding
+                </span>
+              </label>
+              <label class="job-option">
+                <input type="radio" name="job" value="consumer">
+                <span class="job-card">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+                  New consumer unit
+                </span>
+              </label>
+              <label class="job-option">
+                <input type="radio" name="job" value="ev">
+                <span class="job-card">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7v5l3 1.5-3 1.5v5"/></svg>
+                  EV charger
+                </span>
+              </label>
+              <label class="job-option">
+                <input type="radio" name="job" value="lighting">
+                <span class="job-card">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.8.6 1.2 1.4 1.2 2.1h4.6c0-.7.4-1.5 1.2-2.1A6 6 0 0 0 12 3z"/></svg>
+                  Lighting
+                </span>
+              </label>
+              <label class="job-option">
+                <input type="radio" name="job" value="rewire">
+                <span class="job-card">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6.5 7.5 12 16M17.5 7.5 12 16M7 6h10"/></svg>
+                  Rewire
+                </span>
+              </label>
+              <label class="job-option">
+                <input type="radio" name="job" value="other">
+                <span class="job-card">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                  Something else
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="calc-panel" data-panel="2">
+            <h3>Where and when?</h3>
+            <p class="calc-hint">So we can give you an honest price and a realistic slot.</p>
+            <div class="field">
+              <label for="calcPostcode">Postcode</label>
+              <input id="calcPostcode" type="text" inputmode="text" autocomplete="postal-code" placeholder="e.g. B1 1AA">
+              <span class="field-err" id="postcodeErr">Add your postcode so we can quote properly.</span>
+            </div>
+            <div class="field">
+              <label>How urgent is it?</label>
+              <div class="urgency-group">
+                <label class="urgency-option">
+                  <input type="radio" name="urgency" value="now">
+                  <span>Now</span>
+                </label>
+                <label class="urgency-option">
+                  <input type="radio" name="urgency" value="week" checked>
+                  <span>This week</span>
+                </label>
+                <label class="urgency-option">
+                  <input type="radio" name="urgency" value="month">
+                  <span>This month</span>
+                </label>
+              </div>
+            </div>
+            <div class="calc-actions">
+              <button class="btn btn-primary" id="toPrice">
+                Show my price
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+              <button class="calc-back" data-goto="1">Back</button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="calc-panel" data-panel="3">
+            <h3>Your instant quote</h3>
+            <p class="calc-hint">A guide price, not the final word - the survey locks it in.</p>
+            <div class="quote-result">
+              <p class="quote-job" id="quoteJob">Fault finding</p>
+              <p class="quote-loc" id="quoteLoc">In B1 1AA</p>
+              <div class="quote-price"><span class="text-gradient" id="quotePrice">£80 - £140</span></div>
+              <p class="quote-note" id="quoteNote">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                <span>We'll call you back within 15 minutes to lock in a slot.</span>
+              </p>
+            </div>
+            <div class="calc-actions">
+              <button class="btn btn-primary" id="bookSlot">
+                Book the slot
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+              <button class="calc-back" data-goto="1">Change answers</button>
+            </div>
+          </div>
+        </div>
+
+        <figure class="calc-phone">
+          <img src="assets/electrician_quote_ui.jpg" alt="The instant quote app customers see, styled dark with green accents" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="glow" id="services">
+    <div class="container">
+      <div class="center">
+        <span class="eyebrow">What we do</span>
+        <h2>One call covers <span class="text-gradient">every job</span></h2>
+        <p class="lead">From a dead socket to a full rewire, it gets quoted, booked and sorted without you chasing it.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="card service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+          <h3>Consumer units</h3>
+          <p>New or upgraded fuse boards, fitted safely and certified to the latest regs. Sorted in a day.</p>
+        </article>
+        <article class="card service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6.5 7.5 12 16M17.5 7.5 12 16M7 6h10"/></svg></div>
+          <h3>Rewires</h3>
+          <p>Full and partial rewires planned around your life, not the other way round. Minimal mess, honest dates.</p>
+        </article>
+        <article class="card service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7v5l3 1.5-3 1.5v5"/></svg></div>
+          <h3>EV chargers</h3>
+          <p>Home chargers installed and certified, often within a week of your quote. Grant paperwork handled.</p>
+        </article>
+        <article class="card service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.8.6 1.2 1.4 1.2 2.1h4.6c0-.7.4-1.5 1.2-2.1A6 6 0 0 0 12 3z"/></svg></div>
+          <h3>Lighting &amp; security</h3>
+          <p>Indoor and outdoor lighting, CCTV and smart security that just works, set up and explained properly.</p>
+        </article>
+        <article class="card service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M8 11h6"/></svg></div>
+          <h3>Fault finding</h3>
+          <p>Tripping circuits, dead sockets, mystery outages. We find the gremlin fast, fix it once and explain it in plain English.</p>
+        </article>
+        <article class="card service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l1.5 4.5-2.2 1.6a12 12 0 0 0 5.6 5.6l1.6-2.2L20 15v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+          <h3>Emergency callout</h3>
+          <p>Genuine 24/7 cover. Call at midnight, get a human on the line and a sparky on the way.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AI RECEPTIONIST ================= -->
+  <section class="glow" id="how-it-works">
+    <div class="container">
+      <div class="ai-grid">
+        <div>
+          <span class="eyebrow">The AI receptionist</span>
+          <h2>Missed calls are lost jobs.<br><span class="text-gradient">This one never misses.</span></h2>
+          <p class="lead" style="margin-top:16px">Every call you can't take is a job your competitor gets. The AI receptionist runs the whole front of your business while your hands are full.</p>
+
+          <div class="loop">
+            <div class="loop-item">
+              <span class="loop-num">1</span>
+              <div>
+                <h4>Missed call? Not any more.</h4>
+                <p>If you can't pick up, the AI answers on the first ring, 24/7 - even in the van, up a ladder or on the next job.</p>
+              </div>
+            </div>
+            <div class="loop-item">
+              <span class="loop-num">2</span>
+              <div>
+                <h4>It qualifies the job.</h4>
+                <p>Asks what's wrong, where you are and how urgent it is. Time-wasters get filtered before they ever reach you.</p>
+              </div>
+            </div>
+            <div class="loop-item">
+              <span class="loop-num">3</span>
+              <div>
+                <h4>It quotes and books.</h4>
+                <p>Gives your standard price instantly and drops the job straight into your calendar, with the customer's details attached.</p>
+              </div>
+            </div>
+            <div class="loop-item">
+              <span class="loop-num">4</span>
+              <div>
+                <h4>It follows up.</h4>
+                <p>Chases quotes and enquiries automatically until they're booked or dead. No lead goes cold because you got busy.</p>
+              </div>
+            </div>
+            <div class="loop-item">
+              <span class="loop-num">5</span>
+              <div>
+                <h4>It turns customers into reviewers.</h4>
+                <p>Happy customers get asked for a Google review, so your rating climbs while you're on the tools.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-cta">
+            <a href="#quote" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
+              Try the instant quote
+            </a>
+          </div>
+        </div>
+
+        <div class="ai-media reveal">
+          <div class="ai-frame">
+            <img src="assets/missed_call_dashboard.jpg" alt="The AI receptionist dashboard showing every call answered, quoted and booked" loading="lazy">
+          </div>
+          <span class="ai-badge"><span class="dot"></span> Every call, quoted and booked</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COVERAGE ================= -->
+  <section class="glow" id="coverage">
+    <div class="container center">
+      <span class="eyebrow">Coverage</span>
+      <h2>Serving <span class="text-gradient">Your town</span> and beyond</h2>
+      <p class="lead">Based in Your town, covering the surrounding area - usually with you within the day.</p>
+
+      <div class="areas" id="areaList">
+        <span class="area-chip">Your town</span>
+        <span class="area-chip">Nearby town 1</span>
+        <span class="area-chip">Nearby town 2</span>
+        <span class="area-chip">Nearby town 3</span>
+        <span class="area-chip">Nearby town 4</span>
+        <span class="area-chip">Nearby town 5</span>
+        <span class="area-chip">Nearby town 6</span>
+        <span class="area-chip">And the villages in between</span>
+      </div>
+
+      <!-- Replace the chips above with the prospect's real coverage areas.
+           The electrician prospect knows their patch - put their actual
+           towns here during re-brand. -->
+      <p class="area-note">Not sure if you're in our patch? Message us and we'll tell you straight.</p>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section class="glow" id="work">
+    <div class="container">
+      <div class="center">
+        <span class="eyebrow">Recent work</span>
+        <h2>Work we're <span class="text-gradient">proud of</span></h2>
+        <p class="lead">Neat, certified and done on the date we promised.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="gallery-item reveal">
+          <img src="assets/electrician_hero2.jpg" alt="New consumer unit fitted and fully tested" loading="lazy">
+          <figcaption class="gallery-cap">
+            <span>Consumer unit upgrade, fully tested</span>
+            <span class="gallery-tag">Consumer units</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="assets/electrician_hero_v2.jpg" alt="EV charger install completed in a day" loading="lazy">
+          <figcaption class="gallery-cap">
+            <span>EV charger, installed in a day</span>
+            <span class="gallery-tag">EV chargers</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section class="glow" id="reviews">
+    <div class="container">
+      <div class="center">
+        <span class="eyebrow">Reviews</span>
+        <h2>Five stars, <span class="text-gradient">every time</span></h2>
+        <p class="lead">Real homeowners, real jobs - the kind of reviews that come from actually answering the phone.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <article class="card review-card reveal">
+          <div class="stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+          </div>
+          <p class="review-text">"Answered at 8pm on a Sunday and booked me in for the next morning. Fault found and fixed within the hour. Couldn't ask for more."</p>
+          <div class="review-who">
+            <span class="review-avatar">JT</span>
+            <div>
+              <div class="review-name">James T</div>
+              <div class="review-area">Your town</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card review-card reveal">
+          <div class="stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+          </div>
+          <p class="review-text">"Quoted while I was still on the phone and the slot was in the diary before I'd hung up. Exactly how it should work."</p>
+          <div class="review-who">
+            <span class="review-avatar">SM</span>
+            <div>
+              <div class="review-name">Sarah M</div>
+              <div class="review-area">Nearby town 2</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card review-card reveal">
+          <div class="stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+          </div>
+          <p class="review-text">"Rang about an EV charger and someone picked up instantly. Talked me through it properly and installed it the same week."</p>
+          <div class="review-who">
+            <span class="review-avatar">DR</span>
+            <div>
+              <div class="review-name">Dave R</div>
+              <div class="review-area">Nearby town 4</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FREE SURVEY FORM ================= -->
+  <section class="glow" id="contact">
+    <div class="container">
+      <div class="survey-grid">
+        <div>
+          <span class="eyebrow">Free survey</span>
+          <h2>Book your <span class="text-gradient">free survey</span></h2>
+          <p class="lead" style="margin-top:16px">Tell us what needs doing and we'll call you back within 15 minutes. No call-out charge for the survey, no obligation, no hard sell.</p>
+
+          <div class="survey-contacts">
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l1.5 4.5-2.2 1.6a12 12 0 0 0 5.6 5.6l1.6-2.2L20 15v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+              <span>Call <a href="tel:01234567890"><b>01234 567 890</b></a></span>
+            </div>
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-9 9c-1.4 0-2.7-.3-3.9-.9L3 21l1-4.1A9 9 0 1 1 21 12z"/></svg>
+              <span>WhatsApp <a href="https://wa.me/447123456789" target="_blank" rel="noopener"><b>07123 456 789</b></a></span>
+            </div>
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <span>Email <a href="mailto:hello@yourbusiness.co.uk"><b>hello@yourbusiness.co.uk</b></a></span>
+            </div>
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span><b>Mon - Sat, 8am - 6pm.</b> The AI answers out of hours.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card survey-card">
+          <form id="surveyForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="svName">Your name</label>
+                <input id="svName" type="text" name="name" autocomplete="name" placeholder="Full name">
+                <span class="field-err" id="nameErr">Tell us who you are so we know who to ask for.</span>
+              </div>
+              <div class="field">
+                <label for="svPhone">Phone number</label>
+                <input id="svPhone" type="tel" name="phone" autocomplete="tel" placeholder="07123 456 789">
+                <span class="field-err" id="phoneErr">Add a number we can call you back on.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="svJob">What's the job?</label>
+                <select id="svJob" name="job">
+                  <option value="fault">Fault finding</option>
+                  <option value="consumer">New consumer unit</option>
+                  <option value="ev">EV charger</option>
+                  <option value="lighting">Lighting</option>
+                  <option value="rewire">Rewire</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="svPostcode">Postcode</label>
+                <input id="svPostcode" type="text" name="postcode" autocomplete="postal-code" placeholder="e.g. B1 1AA">
+              </div>
+            </div>
+            <div class="field">
+              <label for="svMessage">Anything we should know?</label>
+              <textarea id="svMessage" name="message" placeholder="A few words about the job helps us quote before we arrive."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              Request my call back
+            </button>
+          </form>
+
+          <div class="form-success" id="formSuccess" role="status">
+            <div class="success-check">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h3>Thanks - we'll call you back within 15 minutes.</h3>
+            <p>If it's an emergency, ring <a href="tel:01234567890" style="color:var(--primary);font-weight:650">01234 567 890</a> now.</p>
+            <button class="btn btn-ghost btn-sm" id="formReset" type="button">Send another message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <span class="brand-mark">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
+            </span>
+            <span>
+              <span class="brand-name">YOUR BUSINESS NAME</span>
+              <span class="brand-tag">Electrician</span>
+            </span>
+          </a>
+          <p>Local, certified and backed by a receptionist that never sleeps. Every call answered, every job booked.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="#quote">Instant quote</a>
+            <a href="#services">Services</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#work">Recent work</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Book a survey</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <div class="footer-contact">
+            <a href="tel:01234567890">01234 567 890</a>
+            <a href="https://wa.me/447123456789" target="_blank" rel="noopener">WhatsApp: 07123 456 789</a>
+            <a href="mailto:hello@yourbusiness.co.uk">hello@yourbusiness.co.uk</a>
+            <span>Mon - Sat, 8am - 6pm. AI answers 24/7.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 YOUR BUSINESS NAME. All rights reserved.</span>
+        <span class="atwood">Demo site by Atwood Systems</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* ---------- Nav: scroll shadow + mobile menu ---------- */
+      var nav = document.getElementById("nav");
+      var onScroll = function () { nav.classList.toggle("scrolled", window.scrollY > 10); };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      var burger = document.getElementById("navBurger");
+      var mobileMenu = document.getElementById("mobileMenu");
+      var toggleMenu = function (force) {
+        var open = typeof force === "boolean" ? force : !mobileMenu.classList.contains("open");
+        mobileMenu.classList.toggle("open", open);
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+      burger.addEventListener("click", function () { toggleMenu(); });
+      mobileMenu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () { toggleMenu(false); });
+      });
+
+      /* ---------- Scroll reveal ---------- */
+      var revealEls = document.querySelectorAll(".reveal");
+      if (reducedMotion || !("IntersectionObserver" in window)) {
+        revealEls.forEach(function (el) { el.classList.add("revealed"); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add("revealed"); io.unobserve(entry.target); }
+          });
+        }, { threshold: 0.14, rootMargin: "0px 0px -40px 0px" });
+        revealEls.forEach(function (el) { io.observe(el); });
+      }
+
+      /* ---------- Quote calculator ---------- */
+      var PRICES = {
+        fault:    { label: "Fault finding",     low: 80,   high: 140 },
+        consumer: { label: "New consumer unit", low: 450,  high: 750 },
+        ev:       { label: "EV charger",        low: 900,  high: 1400 },
+        lighting: { label: "Lighting",          low: 150,  high: 400 },
+        rewire:   { label: "Rewire",            low: 3500, high: 6500 },
+        other:    { label: "Something else",    low: 100,  high: 500 }
+      };
+      var URGENCY = {
+        now:   { label: "Now",        note: "We can usually be with you the same day." },
+        week:  { label: "This week",  note: "We'll call you back within 15 minutes to lock in a slot." },
+        month: { label: "This month", note: "Pick a slot that suits you - we'll call you back within 15 minutes." }
+      };
+
+      var panels = document.querySelectorAll(".calc-panel");
+      var steps = document.querySelectorAll(".calc-step");
+      var bars = document.querySelectorAll(".calc-bar i");
+      var postcodeInput = document.getElementById("calcPostcode");
+      var postcodeErr = document.getElementById("postcodeErr");
+
+      function goStep(n) {
+        panels.forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-panel") === String(n)); });
+        steps.forEach(function (s) {
+          var ps = parseInt(s.getAttribute("data-ps"), 10);
+          s.classList.toggle("active", ps === n);
+          s.classList.toggle("done", ps < n);
+        });
+        var pct = ((n - 1) / 2 * 100) + "%";
+        bars.forEach(function (b) { b.style.width = pct; });
+      }
+
+      /* Step 1: pick a job -> advance */
+      var jobRadios = document.querySelectorAll('input[name="job"]');
+      jobRadios.forEach(function (r) {
+        r.addEventListener("change", function () {
+          if (r.checked) goStep(2);
+        });
+      });
+
+      /* Step 2: postcode + urgency -> show price */
+      document.querySelectorAll('input[name="urgency"]').forEach(function (r) {
+        r.addEventListener("change", function () { postcodeInput.classList.remove("error"); postcodeErr.classList.remove("show"); });
+      });
+
+      var toPriceBtn = document.getElementById("toPrice");
+      toPriceBtn.addEventListener("click", function () {
+        var pc = postcodeInput.value.trim();
+        if (!pc) {
+          postcodeInput.classList.add("error");
+          postcodeErr.classList.add("show");
+          postcodeInput.focus();
+          return;
+        }
+        postcodeInput.classList.remove("error");
+        postcodeErr.classList.remove("show");
+        goStep(3);
+        renderQuote(pc);
+      });
+
+      postcodeInput.addEventListener("input", function () {
+        postcodeInput.classList.remove("error");
+        postcodeErr.classList.remove("show");
+      });
+      postcodeInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") { e.preventDefault(); toPriceBtn.click(); }
+      });
+
+      function getSelectedJob() {
+        var checked = document.querySelector('input[name="job"]:checked');
+        return checked ? checked.value : null;
+      }
+      function getUrgency() {
+        var checked = document.querySelector('input[name="urgency"]:checked');
+        return checked ? checked.value : "week";
+      }
+
+      function renderQuote(pc) {
+        var job = PRICES[getSelectedJob()] || PRICES.other;
+        var urg = URGENCY[getUrgency()];
+        document.getElementById("quoteJob").textContent = job.label;
+        document.getElementById("quoteLoc").textContent = "In " + pc.toUpperCase();
+        document.getElementById("quotePrice").textContent = "£" + job.low + " - £" + job.high;
+        document.getElementById("quoteNote").querySelector("span").textContent = urg.note;
+      }
+
+      /* Back links */
+      document.querySelectorAll(".calc-back").forEach(function (b) {
+        b.addEventListener("click", function () { goStep(parseInt(b.getAttribute("data-goto"), 10)); });
+      });
+
+      /* Book the slot -> pre-fill the survey form and scroll to it */
+      var bookSlot = document.getElementById("bookSlot");
+      var surveySelect = document.getElementById("svJob");
+      var surveyPostcode = document.getElementById("svPostcode");
+
+      function fillSurvey() {
+        var job = getSelectedJob();
+        if (job && surveySelect) surveySelect.value = job;
+        if (postcodeInput.value.trim() && surveyPostcode) surveyPostcode.value = postcodeInput.value.trim().toUpperCase();
+      }
+
+      bookSlot.addEventListener("click", function () {
+        fillSurvey();
+        document.getElementById("contact").scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
+        setTimeout(function () { var n = document.getElementById("svName"); if (n) n.focus({ preventScroll: true }); }, 600);
+      });
+
+      /* ---------- Survey form: client-side only ---------- */
+      var form = document.getElementById("surveyForm");
+      var success = document.getElementById("formSuccess");
+      var nameField = document.getElementById("svName");
+      var phoneField = document.getElementById("svPhone");
+      var nameErr = document.getElementById("nameErr");
+      var phoneErr = document.getElementById("phoneErr");
+
+      function setError(field, err, on) {
+        field.classList.toggle("error", on);
+        err.classList.toggle("show", on);
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var nameOk = nameField.value.trim().length >= 2;
+        var phoneOk = phoneField.value.trim().length >= 7;
+        setError(nameField, nameErr, !nameOk);
+        setError(phoneField, phoneErr, !phoneOk);
+        if (!nameOk || !phoneOk) {
+          (nameOk ? phoneField : nameField).focus();
+          return;
+        }
+        form.style.display = "none";
+        success.classList.add("show");
+        success.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "nearest" });
+      });
+
+      document.getElementById("formReset").addEventListener("click", function () {
+        form.reset();
+        form.style.display = "block";
+        success.classList.remove("show");
+      });
+    })();
+  </script>
+</body>
+</html>
