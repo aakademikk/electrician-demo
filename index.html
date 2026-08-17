@@ -2,8 +2,8 @@
 <!-- ==========================================================================
   RE-BRAND CHECKLIST - EVERYTHING TO CHANGE FOR A NEW PROSPECT
   ==========================================================================
-  Business name:     "YOUR BUSINESS NAME"  (nav logo, coverage heading,
-                     footer name, copyright line)
+  Business name:     "YOUR BUSINESS NAME"  (nav logo, power-on intro emblem,
+                     coverage heading, footer name, copyright line)
   Phone number:      01234 567 890         (nav CTA, hero trust row, footer,
                      survey success state, emergency line)
   WhatsApp number:   07123 456 789         (nav CTA, footer) - also update the
@@ -571,9 +571,137 @@
     @media (min-width: 1120px) {
       section { padding: 104px 0; }
     }
+
+    /* ==========================================================================
+       Power-on intro — the screen opens like a breaker box, once per session.
+       Hidden by default so a JS failure or no-JS visitor never gets stuck
+       behind it; the inline script after <body> flips it on for the first
+       visit only.
+       ========================================================================== */
+    .intro { display: none; position: fixed; inset: 0; z-index: 200; overflow: hidden; background: var(--base-deep); }
+    .intro[data-phase="closed"],
+    .intro[data-phase="opening"] { display: block; }
+    .intro[data-phase="done"] { display: none; }
+
+    .intro-panel {
+      position: absolute; top: 0; height: 100%; width: 50.5%;
+      background: var(--base-deep);
+      will-change: transform;
+      transition: transform 1.4s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+    .intro-panel--left  { left: 0; }
+    .intro-panel--right { right: 0; }
+
+    /* Equipment slats — the panels read as a closed unit, not a curtain */
+    .intro-panel::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(to right, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 38px);
+    }
+
+    /* Hazard stripes at the seam — high-voltage warning */
+    .intro-hazard {
+      position: absolute; top: 0; bottom: 0; width: 40px; opacity: 0.16;
+      background: repeating-linear-gradient(-45deg, #f2c94c 0 10px, #0d0d0d 10px 20px);
+    }
+    .intro-panel--left  .intro-hazard { right: 0; }
+    .intro-panel--right .intro-hazard { left: 0; }
+
+    /* Glowing seam — the split that lets the light in */
+    .intro-seam {
+      position: absolute; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+      box-shadow: 0 0 22px 3px rgba(38, 232, 132, 0.55);
+    }
+    .intro-panel--left  .intro-seam { right: 2px; }
+    .intro-panel--right .intro-seam { left: 2px; }
+
+    .intro[data-phase="opening"] .intro-panel--left  { transform: translateX(-101%); }
+    .intro[data-phase="opening"] .intro-panel--right { transform: translateX(101%); }
+
+    /* Centred emblem */
+    .intro-emblem {
+      position: absolute; inset: 0; z-index: 1;
+      display: grid; place-content: center; justify-items: center;
+      gap: 16px; text-align: center; padding: 24px;
+      transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+    }
+    .intro[data-phase="opening"] .intro-emblem { opacity: 0; transform: scale(0.94); }
+
+    .intro-bolt {
+      width: 86px; height: 86px;
+      display: grid; place-items: center;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(38, 232, 132, 0.16), rgba(15, 214, 180, 0.08));
+      border: 1px solid var(--line-green);
+      box-shadow: var(--glow);
+    }
+    .intro-bolt svg { width: 46px; height: 46px; fill: var(--primary); filter: drop-shadow(0 0 14px rgba(38, 232, 132, 0.75)); }
+
+    /* Fluorescent strike — flicker twice before the unit powers on */
+    .intro[data-phase="closed"] .intro-bolt { animation: intro-flicker 0.65s step-end 1; }
+    @keyframes intro-flicker {
+      0%   { opacity: 1; }
+      14%  { opacity: 0.12; }
+      26%  { opacity: 1; }
+      42%  { opacity: 0.3; }
+      56%  { opacity: 1; }
+      100% { opacity: 1; }
+    }
+
+    /* Power-on flash as the doors part */
+    .intro-flash {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, rgba(38, 232, 132, 0.28), rgba(38, 232, 132, 0.06) 45%, transparent 70%);
+      opacity: 0;
+    }
+    .intro[data-phase="opening"] .intro-flash { animation: intro-flash-out 0.7s var(--ease) forwards; }
+    @keyframes intro-flash-out { 0% { opacity: 1; } 100% { opacity: 0; } }
+
+    .intro-name {
+      font-size: clamp(1.35rem, 4vw, 2rem); font-weight: 800; letter-spacing: 0.01em; line-height: 1.1; max-width: 16ch;
+    }
+    .intro-tag {
+      font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--primary);
+    }
   </style>
 </head>
 <body>
+
+  <!-- ================= POWER-ON INTRO =================
+       The screen opens like a breaker box once per session.
+       Re-brand: the name below is the same placeholder as the nav. -->
+  <div id="powerIntro" class="intro" aria-hidden="true" data-phase="idle">
+    <div class="intro-panel intro-panel--left">
+      <span class="intro-seam" aria-hidden="true"></span>
+      <span class="intro-hazard" aria-hidden="true"></span>
+    </div>
+    <div class="intro-panel intro-panel--right">
+      <span class="intro-seam" aria-hidden="true"></span>
+      <span class="intro-hazard" aria-hidden="true"></span>
+    </div>
+    <div class="intro-flash" aria-hidden="true"></div>
+    <div class="intro-emblem" aria-hidden="true">
+      <span class="intro-bolt">
+        <svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
+      </span>
+      <span class="intro-name">YOUR BUSINESS NAME</span>
+      <span class="intro-tag">Electrician</span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      "use strict";
+      try {
+        var played = sessionStorage.getItem("eic:intro-played");
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var el = document.getElementById("powerIntro");
+        if (el) {
+          if (played || reduce) { el.remove(); }
+          else { el.setAttribute("data-phase", "closed"); }
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- ================= NAV ================= -->
   <nav class="nav" id="nav">
@@ -1089,6 +1217,19 @@
       "use strict";
 
       var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* ---------- Power-on intro ----------
+         The inline script after <body> already decided whether to play it and
+         set data-phase="closed" (or removed the element). If it's live, run the
+         timeline: doors open at 700ms, overlay unmounts at 2500ms. */
+      var intro = document.getElementById("powerIntro");
+      if (intro && intro.getAttribute("data-phase") === "closed") {
+        setTimeout(function () { intro.setAttribute("data-phase", "opening"); }, 700);
+        setTimeout(function () {
+          intro.setAttribute("data-phase", "done");
+          try { sessionStorage.setItem("eic:intro-played", "1"); } catch (e) {}
+        }, 2500);
+      }
 
       /* ---------- Nav: scroll shadow + mobile menu ---------- */
       var nav = document.getElementById("nav");
