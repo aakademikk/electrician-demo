@@ -15,6 +15,7 @@
                      this file) - ranges shown in step 3 of the quote widget
   Review copy:       section 8 - the 3 review cards are realistic placeholders
   Gallery captions:  section 7 - captions under the two work photos
+  Work photos:        keep work photos 16:9 - the gallery crops to 16:9 (section 7)
   Hero photo:        assets/electrician_hero1.jpg  (swap for prospect's own)
   Meta title/desc:   the <title> and <meta name="description"> in <head>
   OG image:          the og:image tag points at assets/electrician_hero1.jpg -
@@ -27,11 +28,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>YOUR BUSINESS NAME | Electrician in Your town - instant quotes 24/7</title>
-  <meta name="description" content="Local electrician covering Your town and the surrounding area. An AI receptionist answers every call 24/7, quotes in seconds and books you in. Get your instant quote today.">
+  <meta name="description" content="Local electrician covering Your town and the surrounding area. Instant quotes in under a minute, tap-to-call on every page and gold stars in Google. Get your instant quote today.">
   <meta name="theme-color" content="#090909">
   <meta property="og:type" content="website">
   <meta property="og:title" content="YOUR BUSINESS NAME | Electrician in Your town - instant quotes 24/7">
-  <meta property="og:description" content="Never miss a job because you missed a call. AI receptionist answers 24/7, quotes in seconds and books the job. Get your instant quote today.">
+  <meta property="og:description" content="Instant quotes in under a minute, tap-to-call on every page and gold stars in Google. Get your instant quote today.">
   <meta property="og:image" content="assets/electrician_hero1.jpg">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2326e884' d='M13 2 3 14h7l-1 8 10-12h-7z'/%3E%3C/svg%3E">
   <style>
@@ -422,47 +423,6 @@
     .service-card p { color: var(--muted); font-size: 0.94rem; }
 
     /* ==========================================================================
-       AI receptionist
-       ========================================================================== */
-    .ai-grid { display: grid; gap: 40px; align-items: center; margin-top: 44px; }
-
-    .loop { margin-top: 30px; display: grid; gap: 0; }
-    .loop-item { position: relative; display: flex; gap: 18px; padding-bottom: 26px; }
-    .loop-item:last-child { padding-bottom: 0; }
-    .loop-item::before {
-      content: ""; position: absolute; left: 15px; top: 40px; bottom: 0; width: 2px;
-      background: linear-gradient(180deg, rgba(38, 232, 132, 0.5), rgba(38, 232, 132, 0.05));
-    }
-    .loop-item:last-child::before { display: none; }
-    .loop-num {
-      width: 32px; height: 32px; border-radius: 50%; flex: none;
-      display: grid; place-items: center; font-size: 0.85rem; font-weight: 800;
-      color: #04110e; background: var(--grad-btn); box-shadow: 0 0 18px -4px rgba(38, 232, 132, 0.6);
-      z-index: 1;
-    }
-    .loop-item h4 { font-size: 1.04rem; margin-bottom: 4px; }
-    .loop-item p { color: var(--muted); font-size: 0.94rem; }
-
-    .ai-media { position: relative; }
-    .ai-frame {
-      border-radius: var(--radius); overflow: hidden;
-      border: 1px solid var(--line-green);
-      box-shadow: var(--glow);
-    }
-    .ai-frame img { width: 100%; }
-    .ai-badge {
-      position: absolute; left: 14px; bottom: 14px;
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 14px; border-radius: 999px;
-      background: rgba(5, 5, 5, 0.78); border: 1px solid var(--line-green);
-      backdrop-filter: blur(10px);
-      color: var(--ink); font-size: 0.85rem; font-weight: 650;
-    }
-    .ai-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
-
-    .ai-cta { margin-top: 34px; }
-
-    /* ==========================================================================
        Coverage
        ========================================================================== */
     .areas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; justify-content: center; }
@@ -480,7 +440,7 @@
        ========================================================================== */
     .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 44px; }
     .gallery-item { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); position: relative; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; transition: transform 0.7s var(--ease); }
+    .gallery-item img { width: 100%; height: auto; object-fit: cover; aspect-ratio: 16 / 9; transition: transform 0.7s var(--ease); }
     .gallery-item:hover img { transform: scale(1.04); }
     .gallery-cap {
       position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 20px 16px;
@@ -592,7 +552,6 @@
         width: 100%; max-width: 340px; margin-inline: auto;
       }
       .services-grid { grid-template-columns: repeat(3, 1fr); }
-      .ai-grid { grid-template-columns: 1.05fr 1fr; }
       .survey-grid { grid-template-columns: 1fr 1.1fr; }
       .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; }
     }
@@ -620,8 +579,8 @@
       <div class="nav-links">
         <a href="#quote">Instant quote</a>
         <a href="#services">Services</a>
-        <a href="#how-it-works">How it works</a>
         <a href="#coverage">Coverage</a>
+        <a href="#work">Recent work</a>
         <a href="#reviews">Reviews</a>
       </div>
 
@@ -644,7 +603,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#quote">Instant quote</a>
     <a href="#services">Services</a>
-    <a href="#how-it-works">How it works</a>
+    <a href="#work">Recent work</a>
     <a href="#coverage">Coverage</a>
     <a href="#reviews">Reviews</a>
     <a href="#contact">Contact</a>
@@ -653,9 +612,9 @@
   <!-- ================= HERO ================= -->
   <header class="hero" id="top">
     <div class="container hero-inner">
-      <span class="hero-badge"><span class="dot"></span> AI receptionist answers in seconds, 24/7</span>
-      <h1>On the tools, not on the phone.<br><span class="text-gradient">Never miss a job again.</span></h1>
-      <p class="lead">The AI receptionist answers every call in seconds, quotes your job 24/7 and books it straight into your calendar. You turn up and do the work. It does the phone.</p>
+      <span class="hero-badge"><span class="dot"></span> Instant quotes, 24/7 — no phone tag</span>
+      <h1>Quotes in under a minute.<br><span class="text-gradient">Jobs booked the same day.</span></h1>
+      <p class="lead">This is what a website for your trade looks like: customers get a price in under a minute, tap-to-call on every page, and gold stars showing in Google. No phone tag, no missed enquiries.</p>
       <div class="hero-cta">
         <a href="#quote" class="btn btn-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
@@ -666,7 +625,7 @@
       <div class="hero-trust">
         <span>
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-          Answers on the first ring
+          Quoted in under a minute
         </span>
         <span>
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg>
@@ -864,71 +823,6 @@
     </div>
   </section>
 
-  <!-- ================= AI RECEPTIONIST ================= -->
-  <section class="glow" id="how-it-works">
-    <div class="container">
-      <div class="ai-grid">
-        <div>
-          <span class="eyebrow">The AI receptionist</span>
-          <h2>Missed calls are lost jobs.<br><span class="text-gradient">This one never misses.</span></h2>
-          <p class="lead" style="margin-top:16px">Every call you can't take is a job your competitor gets. The AI receptionist runs the whole front of your business while your hands are full.</p>
-
-          <div class="loop">
-            <div class="loop-item">
-              <span class="loop-num">1</span>
-              <div>
-                <h4>Missed call? Not any more.</h4>
-                <p>If you can't pick up, the AI answers on the first ring, 24/7 - even in the van, up a ladder or on the next job.</p>
-              </div>
-            </div>
-            <div class="loop-item">
-              <span class="loop-num">2</span>
-              <div>
-                <h4>It qualifies the job.</h4>
-                <p>Asks what's wrong, where you are and how urgent it is. Time-wasters get filtered before they ever reach you.</p>
-              </div>
-            </div>
-            <div class="loop-item">
-              <span class="loop-num">3</span>
-              <div>
-                <h4>It quotes and books.</h4>
-                <p>Gives your standard price instantly and drops the job straight into your calendar, with the customer's details attached.</p>
-              </div>
-            </div>
-            <div class="loop-item">
-              <span class="loop-num">4</span>
-              <div>
-                <h4>It follows up.</h4>
-                <p>Chases quotes and enquiries automatically until they're booked or dead. No lead goes cold because you got busy.</p>
-              </div>
-            </div>
-            <div class="loop-item">
-              <span class="loop-num">5</span>
-              <div>
-                <h4>It turns customers into reviewers.</h4>
-                <p>Happy customers get asked for a Google review, so your rating climbs while you're on the tools.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="ai-cta">
-            <a href="#quote" class="btn btn-primary">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
-              Try the instant quote
-            </a>
-          </div>
-        </div>
-
-        <div class="ai-media reveal">
-          <div class="ai-frame">
-            <img src="assets/missed_call_dashboard.jpg" alt="The AI receptionist dashboard showing every call answered, quoted and booked" loading="lazy">
-          </div>
-          <span class="ai-badge"><span class="dot"></span> Every call, quoted and booked</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= COVERAGE ================= -->
   <section class="glow" id="coverage">
     <div class="container center">
@@ -988,7 +882,7 @@
       <div class="center">
         <span class="eyebrow">Reviews</span>
         <h2>Five stars, <span class="text-gradient">every time</span></h2>
-        <p class="lead">Real homeowners, real jobs - the kind of reviews that come from actually answering the phone.</p>
+        <p class="lead">Real homeowners, real jobs - the kind of reviews that come from showing up and doing it right.</p>
       </div>
 
       <div class="reviews-grid">
@@ -1073,7 +967,7 @@
             </div>
             <div class="contact-row">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              <span><b>Mon - Sat, 8am - 6pm.</b> The AI answers out of hours.</span>
+              <span><b>Mon - Sat, 8am - 6pm.</b> Instant quotes out of hours.</span>
             </div>
           </div>
         </div>
@@ -1146,7 +1040,7 @@
               <span class="brand-tag">Electrician</span>
             </span>
           </a>
-          <p>Local, certified and backed by a receptionist that never sleeps. Every call answered, every job booked.</p>
+          <p>Local, certified and built for the phone — instant quotes, tap-to-call and gold stars in Google.</p>
         </div>
 
         <div class="footer-col">
@@ -1154,7 +1048,6 @@
           <div class="footer-links">
             <a href="#quote">Instant quote</a>
             <a href="#services">Services</a>
-            <a href="#how-it-works">How it works</a>
             <a href="#work">Recent work</a>
             <a href="#reviews">Reviews</a>
             <a href="#contact">Book a survey</a>
@@ -1167,7 +1060,7 @@
             <a href="tel:01234567890">01234 567 890</a>
             <a href="https://wa.me/447123456789" target="_blank" rel="noopener">WhatsApp: 07123 456 789</a>
             <a href="mailto:hello@yourbusiness.co.uk">hello@yourbusiness.co.uk</a>
-            <span>Mon - Sat, 8am - 6pm. AI answers 24/7.</span>
+            <span>Mon - Sat, 8am - 6pm. Instant quotes 24/7.</span>
           </div>
         </div>
       </div>
