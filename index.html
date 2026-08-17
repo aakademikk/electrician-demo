@@ -215,7 +215,8 @@
       box-shadow: 0 0 24px -6px rgba(38, 232, 132, 0.45);
     }
     .brand-mark svg { width: 20px; height: 20px; fill: var(--primary); }
-    .brand-name { font-weight: 750; letter-spacing: 0.02em; font-size: 1.02rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-text { min-width: 0; }
+    .brand-name { display: block; min-width: 0; font-weight: 750; letter-spacing: 0.02em; font-size: 1.02rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .brand-tag { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--primary); display: block; }
 
     .nav-links { display: none; align-items: center; gap: 26px; }
@@ -581,7 +582,7 @@
         <span class="brand-mark">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
         </span>
-        <span>
+        <span class="brand-text">
           <span class="brand-name">YOUR BUSINESS NAME</span>
           <span class="brand-tag">Electrician</span>
         </span>
@@ -1046,7 +1047,7 @@
             <span class="brand-mark">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
             </span>
-            <span>
+            <span class="brand-text">
               <span class="brand-name">YOUR BUSINESS NAME</span>
               <span class="brand-tag">Electrician</span>
             </span>
