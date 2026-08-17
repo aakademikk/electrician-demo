@@ -215,7 +215,7 @@
       box-shadow: 0 0 24px -6px rgba(38, 232, 132, 0.45);
     }
     .brand-mark svg { width: 20px; height: 20px; fill: var(--primary); }
-    .brand-name { font-weight: 750; letter-spacing: 0.02em; font-size: 1.02rem; line-height: 1.2; white-space: nowrap; }
+    .brand-name { font-weight: 750; letter-spacing: 0.02em; font-size: 1.02rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .brand-tag { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--primary); display: block; }
 
     .nav-links { display: none; align-items: center; gap: 26px; }
@@ -531,6 +531,17 @@
     /* ==========================================================================
        Responsive
        ========================================================================== */
+    @media (max-width: 899px) {
+      /* When the nav links are hidden, let the brand take the row's free space. */
+      .brand { flex: 1; }
+    }
+
+    @media (max-width: 560px) {
+      /* Keep the business name visible: collapse the nav phone button to icon-only on phones. */
+      .nav-cta .btn span { display: none; }
+      .nav-cta .btn { padding: 11px; }
+    }
+
     @media (min-width: 640px) {
       .job-grid { grid-template-columns: repeat(3, 1fr); }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
